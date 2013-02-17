@@ -2,7 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    
+    <?php if(isset($header) && isset($header['title'])): ?>
+      <title><?php echo $header['title']; ?> | Learning CI with Bootstrap</title>
+    <?php else: ?>
+      <title>Learning CI with Bootstrap</title>
+    <?php endif; ?>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">

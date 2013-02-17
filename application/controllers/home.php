@@ -8,6 +8,9 @@ class Home extends CI_Controller
 
 	// this is the home page
 	public function index() {
-		$this->load->view('page_view');
+		$data['header']['title'] = 'Home page';
+		$data['footer']['scripts']['homescript.js'] = 'home';
+		
+		$this->load->view('page_view', $data);
 	}
 }
