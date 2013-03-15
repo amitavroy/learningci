@@ -5,3 +5,5 @@
 */cache/!index.html
 .idea
 .settings
+.buildpath
+.project
