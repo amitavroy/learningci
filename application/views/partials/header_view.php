@@ -21,6 +21,7 @@
       }
     </style>
     <link href="<?php echo base_url(); ?>css/bootstrap-responsive.css" rel="stylesheet">
+    <script type="text/javascript">var base_url = '<?php print base_url(); ?>';</script>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
