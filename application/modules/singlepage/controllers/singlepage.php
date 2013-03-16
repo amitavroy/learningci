@@ -36,18 +36,13 @@ class Singlepage extends CI_Controller {
 	 * This page is taken by the view route
 	 */
 	public function view() {
-		echo 'I am coming inside route';
+		$this->load->view('singlepage/singlepage_view_view');
 	}
 	
 	/**
 	 * This page is taken by the edit route
 	 */
-	public function edit($bid = null) {
-		if ($bid != null) {
-			
-		}
-		else {
-			redirect('singlepage/index');
-		}
+	public function edit() {
+    $this->load->view('singlepage/singlepage_edit_view');
 	}
 }

@@ -1,4 +1,4 @@
-<div ng-module="singlePageModule">
+<div ng-app="singlePageModule">
 	
 	<div class="row-fluid">
 	
