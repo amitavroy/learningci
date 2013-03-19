@@ -18,6 +18,23 @@
         </table>
       </div>
 
+      <div class="span4 offset1">
+        <fieldset>
+          <legend>Add a new book</legend>
+          <label for="book-name">Book name:</label>
+          <input type="text" name="book-name" ng-model="bookData.name" id="book-name">
+
+          <label for="book-price">Book price:</label>
+          <input type="text" name="book-price" ng-model="bookData.price" id="book-price">
+
+          <label for="author-id">Author id:</label>
+          <input type="text" name="author-id" ng-model="bookData.authorId" id="author-id">
+
+          <label></label>
+          <button class="btn btn-large btn-success" ng-click="addNewBook(bookData)">Add</button>
+        </fieldset>
+      </div>
+
     </div>
 
   </div>

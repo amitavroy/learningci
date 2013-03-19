@@ -17,6 +17,17 @@ singlePageModule.factory('sharedBooks', ['$http', '$rootScope', function($http, 
         return books;
       })
     },
-    saveBooks: function() {}
+    saveBooks: function($params) {
+      return $http({
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        url: base_url + 'json/save_book',
+        method: "POST",
+        data: $params,
+      })
+        .success(function(addData) {
+          books = addData;
+          $rootScope.$broadcast('handleSharedBooks',books);
+        });
+    }
   };
 }]);

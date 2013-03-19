@@ -6,7 +6,17 @@ singlePageModule.controller('bookViewCtrl', function($scope,$routeParams,sharedB
 
   $scope.$on('handleSharedBooks', function(events, books) {
     $scope.books = books;
-  })
+  });
+
+//  handling the submit button for the form
+  $scope.addNewBook = function(bookData) {
+    $params = $.param({
+      "name": bookData.name,
+      "price": bookData.price,
+      "author_id": bookData.authorId
+    })
+    sharedBooks.saveBooks($params);
+  }
 });
 
 singlePageModule.controller('bookEditCtrl', function($scope, $routeParams) {

@@ -16,4 +16,18 @@ class Json extends CI_Controller {
     print json_encode($data);
     exit();
   }
+
+  public function save_book() {
+    $this->load->model('books/books_model','books');
+    $data = array(
+      'name' => $this->input->post('name'),
+      'price' => $this->input->post('price'),
+      'author_id' => $this->input->post('author_id')
+    );
+    $this->books->add($data);
+
+    $new_books = $this->books->get();
+    print json_encode($new_books);
+    exit();
+  }
 }
