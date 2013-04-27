@@ -128,7 +128,8 @@ $config['groups']['default'] = array(
   'js' => array(
     array('jquery-1.8.3.min.js'), // adding the jquery library
     array('bootstrap.min.js'), // adding the bootstrap library
-    // array('angular.min.js') // adding the angular js library
+    array('angular.min.js'), // adding the angular js library
+    array('global_script.js') // adding the global javascript file
   ),
   'css' => array(
     array('bootstrap.min.css'),
