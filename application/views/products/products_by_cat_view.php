@@ -1,4 +1,4 @@
-<div ng-controller="productListController">
+<div ng-controller="categoryProductController">
 	<div class="span2">
 		<ul class="cat-menu">
 			<li ng-repeat="category in categories">
@@ -10,6 +10,10 @@
 	</div>
 
 	<div class="span10">
-		
+		<div id="product-grid" class="row-fluid">
+			<div class="products" ng-repeat="product in products">
+				<span class="product-name">{{product.ProductName}}</span>
+			</div>
+		</div>
 	</div>
 </div>

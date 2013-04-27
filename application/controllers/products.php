@@ -20,8 +20,19 @@ class Products extends CI_Controller {
 		$this->load->view('main_page_view',$data);
 	}
 
+	function products_by_cat() {
+		$this->load->view('products/products_by_cat_view');
+	}
+
+	/*Ajax pages are here*/
 	function products_ajax_list() {
 		is_ajax_req();
 		$this->load->view('products/products_ajax_list_view');
+	}
+
+	function products_ajax_by_cat($category_id) {
+		$this->load->model('products_model');
+		$data = $this->products_model->get_products($category_id);
+		echo json_encode($data);
 	}
 }
