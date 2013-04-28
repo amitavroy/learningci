@@ -19,4 +19,9 @@ class Products_model extends CI_Model {
 			return false;
 		}
 	}
+
+	function get_product_by_id($product_id) {
+		$result = $this->db->select()->from('products')->where('ProductID', $product_id)->get()->row();
+		return $result;
+	}
 }

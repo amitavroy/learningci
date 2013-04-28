@@ -40,4 +40,10 @@ class Products extends CI_Controller {
 		$data = $this->products_model->get_products($category_id);
 		echo json_encode($data);
 	}
+
+	function products_ajax_by_id($product_id) {
+		$this->load->model('products_model');
+		$data = $this->products_model->get_product_by_id($product_id);
+		echo json_encode($data);
+	}
 }

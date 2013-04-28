@@ -23,5 +23,10 @@ northWind.controller('productByIdController', function($scope, $routeParams, $ht
 	sharedCategories.getCategories().then(function(categories) {
 		$scope.categories = categories;
 	});
-	$scope.name = 'Amitav';
+
+	/*getting the product details by the product id*/
+	$scope.product = $http.get(base_url + 'products/products_ajax_by_id/' + $routeParams.id).then(function(response) {
+		$rootScope.$broadcast('getProductByIdList',$scope.product);
+		return response.data;
+	});
 });
