@@ -12,7 +12,7 @@
 	<div class="span10">
 		<div id="product-grid" class="row-fluid">
 			<div class="products" ng-repeat="product in products">
-				<?php echo anchor('prduct/view/{{product.ProductID}}', img('assets/img/products/{{product.ProductID}}_big.jpg')); ?>
+				<?php echo anchor('#/product/view/{{product.ProductID}}', img('assets/img/products/{{product.ProductID}}_big.jpg')); ?>
 				<span class="product-name">{{product.ProductName}}</span>
 			</div>
 		</div>

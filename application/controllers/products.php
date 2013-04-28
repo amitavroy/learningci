@@ -25,6 +25,10 @@ class Products extends CI_Controller {
 		$this->load->view('products/products_by_cat_view');
 	}
 
+	function products_by_id() {
+		$this->load->view('products/products_by_id_view');
+	}
+
 	/*Ajax pages are here*/
 	function products_ajax_list() {
 		is_ajax_req();

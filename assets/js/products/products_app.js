@@ -17,3 +17,11 @@ northWind.controller('categoryProductController', function($scope, $routeParams,
 		return response.data;
 	});
 });
+
+northWind.controller('productByIdController', function($scope, $routeParams, $http, $rootScope, sharedCategories) {
+	/*getting the categories from shared object*/
+	sharedCategories.getCategories().then(function(categories) {
+		$scope.categories = categories;
+	});
+	$scope.name = 'Amitav';
+});
