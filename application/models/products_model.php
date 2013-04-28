@@ -21,7 +21,14 @@ class Products_model extends CI_Model {
 	}
 
 	function get_product_by_id($product_id) {
-		$result = $this->db->select()->from('products')->where('ProductID', $product_id)->get()->row();
+		$result = $this->db
+		->select()
+		->from('products p')
+		->where('p.ProductID', $product_id)
+		->join('suppliers s', 's.SupplierID = p.SupplierID')
+		->get()
+		->row();
+
 		return $result;
 	}
 }
