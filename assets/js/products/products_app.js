@@ -30,3 +30,11 @@ northWind.controller('productByIdController', function($scope, $routeParams, $ht
 		return response.data;
 	});
 });
+
+northWind.controller('productMonitor', function($scope, $rootScope, sharedProducts) {
+	$scope.name = 'Amitav';
+	sharedProducts.getAllProducts().then(function(products) {
+		$scope.products = products;
+		$rootScope.$broadcast('getAllProducts', products);
+	})
+});
