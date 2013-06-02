@@ -10,7 +10,7 @@ class Notification extends CI_Controller {
    */
   public function index() {
     $this->carabiner->js('notification/notification_app.js');
-    $data['header']['page_title'] = 'Listing of all orders'; // title for the page
+    $data['header']['page_title'] = 'Learning CI Tutorial - Notification order listing'; // title for the page
 		$data['content']['view_name'] = 'product_dash'; // name of the partial view to load
 		$data['content']['view_data'] = array(); // data coming inside the view
     
@@ -39,7 +39,7 @@ class Notification extends CI_Controller {
     $order_number = 10423;
     $order = $this->orders->get_order_by_id($order_number);
     
-    $data['header']['page_title'] = 'Listing of all orders'; // title for the page
+    $data['header']['page_title'] = 'Learning CI Tutorial - Notification edit order'; // title for the page
 		$data['content']['view_name'] = 'order_edit'; // name of the partial view to load
 		$data['content']['view_data'] = array(
       'order' => $order
