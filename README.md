@@ -12,3 +12,4 @@ So far there are 8 tutorials in this repository. Each tutorial has it's own bran
 - 05_angularjs_factory_01
 - 06_angularjs_factory_02
 - 07_infscroll
+- 08_Angular_notification
