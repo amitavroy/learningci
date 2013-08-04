@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<course>
+
+	<navigation>
+		<chapter number="1">
+			<name>Getting started</name>
+			<page>Building a Drupal 7 Site</page>
+			<page>Essential Tools: Drush and Git</page>
+		</chapter>
+
+		<chapter number="2">
+			<name>Building Dynamic Pages Using Views</name>
+			<page>There's a Module for That</page>
+			<page>Creating Community Web Sites with Organic Groups</page>
+			<page>Security in Drupal</page>
+			<page>Updating Drupal</page>
+			<page>Extending Your Site</page>
+		</chapter>
+
+	</navigation>
+
+</course>
