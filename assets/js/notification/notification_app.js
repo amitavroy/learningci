@@ -7,7 +7,6 @@ notificationModule.factory('sharedorders', ['$http', '$rootScope', function($htt
     getOrders: function() {
       return $http.get(base_url + 'notification/get_product_orders').then(function(response) {
         orders = response.data;
-        $rootScope.$broadcast('handleSharedOrders',orders);
         return orders;
       })
     }
