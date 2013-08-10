@@ -14,3 +14,4 @@ So far there are 8 tutorials in this repository. Each tutorial has it's own bran
 - 07_infscroll
 - 08_Angular_notification
 - 09_Angular_localstorage
+- 10_AngularJS_XML - Getting the XML data inside controllers
