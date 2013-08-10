@@ -7,15 +7,32 @@ angularXML.config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/home'});
 }]);
 
-angularXML.controller('MainCtrl', ['$scope', '$http', function($scope, $http) {
+angularXML.factory('courseDefService', ['$http', function($http) {
+  var courseDefService = {};
+
+  courseDefService.data = '';
+  courseDefService.load = function() {
+    this.data = $http.get(base_url + 'assets/js/angularxml/courseDef.xml').then(function(data) {
+      return x2js.xml_str2json(data.data);
+    });
+    return this.data;
+  };
+
+  courseDefService.get = function() {
+    return this.data === '' ? this.load() : this.data;
+  };
+
+  return courseDefService;
+}]);
+
+angularXML.controller('MainCtrl', ['$scope', '$http', 'courseDefService', function($scope, $http, courseDefService) {
   $scope.title = "How to use XML inside AngularJS";
-  $http.get(base_url + 'assets/js/angularxml/courseDef.xml').then(function(response) {
+  courseDefService.get().then(function(data) {
+    $scope.courseDef = data;
     var chapters = [];
-    /*setting up the response*/
-    var courseDef = x2js.xml_str2json(response.data);
+    var courseDef = $scope.courseDef
     $scope.chaptersObj = courseDef.course.navigation.chapter;
 
-    /*looping through the chapters*/
     var numOfChapters = $scope.chaptersObj.length;
     for (var i = 0; i < numOfChapters; i++) {
       chapters.push({
@@ -28,23 +45,21 @@ angularXML.controller('MainCtrl', ['$scope', '$http', function($scope, $http) {
   });
 }]);
 
-angularXML.controller('chapterCtrl', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
+angularXML.controller('chapterCtrl', ['$scope', '$routeParams', '$http', 'courseDefService', function($scope, $routeParams, $http, courseDefService) {
   $scope.chapterNumber = $routeParams.id;
-  var chapter = $scope.chapterNumber - 1; /* index starts from zero */
+  var chapter = $scope.chapterNumber - 1;
 
-  $http.get(base_url + 'assets/js/angularxml/courseDef.xml').then(function(response) {
+  courseDefService.get().then(function(data) {
     var chapters = [];
     var pages = [];
 
-    /*setting up the response*/
-    var courseDef = x2js.xml_str2json(response.data);
+    var courseDef = data;
     chapters = courseDef.course.navigation.chapter;
 
     var numOfPages = chapters[chapter].length;
     var thisChapter = chapters[chapter];
     var numOfPages = thisChapter.page.length;
 
-    /* looping through the pages. */
     for (var i = 0; i < numOfPages; i++) {
       pages.push({
         name: thisChapter.page[i]
@@ -54,5 +69,4 @@ angularXML.controller('chapterCtrl', ['$scope', '$routeParams', '$http', functio
     $scope.pages = pages;
     $scope.chapterName = thisChapter.name;
   });
-
 }]);
