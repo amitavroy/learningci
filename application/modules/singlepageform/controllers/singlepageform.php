@@ -37,4 +37,12 @@ class Singlepageform extends CI_Controller {
       show_error('No parameter', 500);
     }
   }
+
+  function save_user_data() {
+    $data = json_encode($_POST['data']);
+    $this->load->database();
+    $this->db->insert('user_data', array(
+      'data' => $data
+    ));
+  }
 }

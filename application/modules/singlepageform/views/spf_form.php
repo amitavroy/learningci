@@ -5,9 +5,6 @@
       <label>Date:</label>
       <input type="text" class="form-control" id="date" ng-model="data.date" data-date-format="dd/mm/yyyy" bs-datepicker>
 
-      <label>Description:</label>
-      <input type="text" name="description" ng-model="data.desc" />
-
       <div ng-show="productLines">
         <label>Product Line:</label>
         <select
@@ -31,9 +28,16 @@
         </select>
       </div>
 
+      <div ng-show="products">
+        <label>Description:</label>
+        <textarea ng-model="data.desc"></textarea>
+      </div>
+
+      <label></label>
+      <button class="btn btn-primary btn-large" ng-click="saveData(data)">Save</button>
+
     </form>
 
     <pre>{{data}}</pre>
-    <pre>{{products}}</pre>
   </div>
 </div>
