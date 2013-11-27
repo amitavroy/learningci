@@ -25,11 +25,23 @@
             </ul>
           </li>
         </ul>
-        <form class="navbar-form pull-right">
-          <input class="span2" type="text" placeholder="Email">
-          <input class="span2" type="password" placeholder="Password">
-          <button type="submit" class="btn">Sign in</button>
-        </form>
+        <?php if ($this->session->userdata('auth') == 1): ?>
+        <ul class="nav pull-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $this->session->userdata('displayname'); ?> <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><?php echo anchor('user/logout', 'Logout'); ?></li>
+            </ul>
+          </li>
+        </ul>
+        <?php endif; ?>
+        <?php if ($this->session->userdata('auth') != 1): ?>
+          <?php $this->load->helper('form'); echo form_open('user/do_login', 'class="navbar-form pull-right"'); ?>
+            <input class="span2" type="text" placeholder="Email" name="email">
+            <input class="span2" type="password" placeholder="Password" name="password">
+            <button type="submit" class="btn">Sign in</button>
+          <?php echo form_close(); ?>
+        <?php endif; ?>
       </div><!--/.nav-collapse -->
     </div>
   </div>

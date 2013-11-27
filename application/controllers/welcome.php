@@ -25,6 +25,16 @@ class Welcome extends CI_Controller {
 
 		$this->load->view('main_page_view',$data);
 	}
+
+  public function area51()
+  {
+    auth_user();
+    $data['header']['page_title'] = 'Welcome to Area 51'; // title for the page
+    $data['content']['view_name'] = 'area51'; // name of the partial view to load
+    $data['content']['view_data'] = array(); // data coming inside the view
+
+    $this->load->view('main_page_view',$data);
+  }
 }
 
 /* End of file welcome.php */
