@@ -28,6 +28,7 @@
       <?php $this->load->view('partials/footer'); ?>
 
     </div> <!-- /container -->
+    <?php $this->carabiner->display('css'); ?>
     <?php $this->carabiner->display('js'); ?>
 
   </body>

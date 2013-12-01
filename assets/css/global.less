@@ -1,0 +1,36 @@
+.rounded-corners (@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  -ms-border-radius: @radius;
+  -o-border-radius: @radius;
+  border-radius: @radius;
+}
+.mydragable {
+  .rounded-corners();
+  position: relative;
+  padding: 10px 15px 10px 10px;
+  border: 1px solid black;
+  width: 210px;
+  cursor: move;
+  margin-bottom: 10px;
+  background-image: -webkit-linear-gradient(top, #5bc0de, #2f96b4);
+  background-image: -o-linear-gradient(top, #5bc0de, #2f96b4);
+  background-image: linear-gradient(to bottom, #5bc0de, #2f96b4);
+  span {
+    position: absolute;
+    top: 8px;
+    right: 5px;
+    font-size: 80%;
+    font-weight: bold;
+  }
+}
+
+#droppable {
+  width: 240px;
+  height: 400px;
+  border: 1px solid black;
+  padding: 10px;
+  span {
+    color: blue;
+  }
+}
